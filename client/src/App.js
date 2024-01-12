@@ -9,12 +9,14 @@ import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import PostDetails from './components/PostDetails/PostDetails';
 
-const App = () =>{
+
+
+const App = () => {
 
   const user = JSON.parse(localStorage.getItem("profile"));
-
-  return(
-    <GoogleOAuthProvider  clientId ="438298336792-4jlsl75uis4ve9v1lbscpdscojkfvebn.apps.googleusercontent.com" >
+  
+  return (
+    <GoogleOAuthProvider  clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}>
       <BrowserRouter>
         <Container maxWidth="xl">
           <Navbar/>
@@ -28,10 +30,11 @@ const App = () =>{
         </Container>
       </BrowserRouter>
     </GoogleOAuthProvider>
-  );
-};
-
-  
-  
+  )
+}
 
 export default App;
+
+  
+  
+
